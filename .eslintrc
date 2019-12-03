@@ -1,0 +1,56 @@
+{
+    "extends": [
+        "taro"
+    ],
+    "rules": {
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "Taro"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".tsx"
+                ]
+            }
+        ],
+        "generator-star-spacing": "off",
+        "indent": [
+            "error",
+            4
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-new": 0,
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "space-before-function-paren": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ]
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "useJSXTextNode": true,
+        "project": "./tsconfig.json"
+    }
+}

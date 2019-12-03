@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "lib",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "rootDir": ".",
+        "jsx": "preserve",
+        "jsxFactory": "Taro.createElement",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "paths": {
+            "@/actions/*": ["./src/actions/*"],
+            "@/components/*": ["./src/components/*"],
+            "@/services/*": ["./src/services/*"],
+            "@/utils/*": ["./src/utils/*"]
+        },
+        "lib": [
+            "dom",
+            "es5",
+            "es6",
+            "es7",
+            "es2015.promise"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "compileOnSave": false
+}

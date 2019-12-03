@@ -1,0 +1,63 @@
+.m-d{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    .content{
+        width: 100%;
+        height: 1000px;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        transition: transform 0.5s ease 0.1s;
+        transform: translateY(100%);
+        &-active{
+            transform: translateY(0);
+        }
+        .c-hd{
+            padding-top: 140px;
+            color: #4a4a4a;
+            font-size: 30px;
+            font-weight: bold;
+            padding-left: 40px;
+            .close{
+                position: absolute;
+                margin: 20px;
+                width: 40px;
+                height: 40px;
+                right: 20px;
+                top: 20px;
+                background: url(https://ueapp.oss-cn-hangzhou.aliyuncs.com/leapMiniApp/common/close-icon.png) no-repeat;
+                background-size: contain;
+            }
+        }
+        .c-dt{
+            padding: 72px 40px 0 40px;
+            height: 620px;
+            overflow-y: auto;
+            margin-bottom: 100px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .c-btn{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 96px;
+            line-height: 96px;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 4px;
+            background-color: #213543;
+        }
+    }
+}
