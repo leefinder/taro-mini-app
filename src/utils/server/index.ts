@@ -3,17 +3,21 @@ import getBaseUrl from './baseUrl'
 import interceptors from './interceptors'
 
 interceptors.forEach(interceptorItem => Taro.addInterceptor(interceptorItem))
-
+type Option = {
+    url: string,
+    data?: object | string,
+    method: any,
+    header: object
+}
 class BaseRequest {
 
     baseOptions(params) {
         let { path, url, data, contentType, method } = params
-        const baseUrl = getBaseUrl(path)
-        url = url.startsWith('/') ? baseUrl + url :  baseUrl + '/' + url
+        const baseUrl = getBaseUrl(path, url)
         contentType = contentType || 'application/x-www-form-urlencoded'
         method = method || 'GET'
-        const option = {
-            url,
+        const option: Option = {
+            url: baseUrl,
             data,
             method,
             header: {
@@ -66,13 +70,14 @@ class BaseRequest {
     }
 
 }
-function httpRequest () {
+function init () {
     let ajax
-    if (ajax) {
+    return () => {
+        if (!ajax) {
+            ajax = new BaseRequest()
+        }
         return ajax
-    } else {
-        return ajax = new BaseRequest()
     }
 }
-
+const httpRequest = init()
 export default httpRequest

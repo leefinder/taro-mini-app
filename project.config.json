@@ -1,17 +1,19 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "lpMiniApp",
-	"description": "leapMiniApp",
+	"projectname": "miniApp",
+	"description": "miniApp",
 	"appid": "",
 	"setting": {
 		"urlCheck": false,
-		"es6": false,
+		"es6": true,
 		"postcss": false,
 		"minified": false,
 		"newFeature": true,
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -24,6 +26,7 @@
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"libVersion": "2.10.0",
 	"condition": {
 		"search": {
 			"current": -1,

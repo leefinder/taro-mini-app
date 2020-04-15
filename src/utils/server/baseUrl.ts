@@ -1,12 +1,14 @@
 const getBaseUrl = (root) => {
-    const apptec = process.env.NODE_ENV === 'production' ? 'https://xxx' : 'https://xxx'
-    const leapUrl = process.env.NODE_ENV === 'production' ? 'https://xxx' : 'https://xxx'
+    const test1 = process.env.NODE_ENV === 'production' ? 'https://xxx' : 'https://xxx'
+    const test2 = process.env.NODE_ENV === 'production' ? 'https://xxx' : 'https://xxx'
     const urlPool = {
-        apptec,
-        leapUrl
+        test1,
+        test2
     }
-    if (urlPool[root]) {
-        return urlPool[root]
+    const baseUrl = /^([a-z][a-z\d+\-\\.]*:)?\/\//i.test(path) ? path : urlPool[path]
+    if (baseUrl) {
+        url = url.startsWith('/') ?  `${baseUrl}${url}` : `${baseUrl}/${url}`
+        return url
     } else {
         throw new Error('please input a valid Url')
     }

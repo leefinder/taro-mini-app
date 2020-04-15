@@ -23,7 +23,8 @@
             "@/actions/*": ["./src/actions/*"],
             "@/components/*": ["./src/components/*"],
             "@/services/*": ["./src/services/*"],
-            "@/utils/*": ["./src/utils/*"]
+            "@/utils/*": ["./src/utils/*"],
+            "@/assets/*": ["./src/assets/*"]
         },
         "lib": [
             "dom",
