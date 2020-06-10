@@ -24,7 +24,8 @@
             "@/components/*": ["./src/components/*"],
             "@/services/*": ["./src/services/*"],
             "@/utils/*": ["./src/utils/*"],
-            "@/assets/*": ["./src/assets/*"]
+            "@/assets/*": ["./src/assets/*"],
+            "@/typeTs/*":["src/type-ts/*"]
         },
         "lib": [
             "dom",

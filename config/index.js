@@ -41,7 +41,8 @@ const config = {
         '@/components': path.resolve(__dirname, '..', 'src/components'),
         '@/utils': path.resolve(__dirname, '..', 'src/utils'),
         '@/services': path.resolve(__dirname, '..', 'src/services'),
-        '@/assets': path.resolve(__dirname, '..', 'src/assets')
+        '@/assets': path.resolve(__dirname, '..', 'src/assets'),
+        '@/typeTs': path.resolve(__dirname, '..', 'src/type-ts')
     },
     mini: {
         postcss: {

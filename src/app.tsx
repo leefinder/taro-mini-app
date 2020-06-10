@@ -41,9 +41,29 @@ class App extends Component {
             navigationBarTextStyle: 'black'
         },
         tabBar: {
+            custom: true,
             color: '#BDC3C7',
             selectedColor: '#253746',
+            backgroundColor: "#fff",
             list: [
+                {
+                    pagePath: 'pages/index/index',
+                    text: '车型',
+                    iconPath: './assets/images/tab/carType-inactive.png',
+                    selectedIconPath: './assets/images/tab/carType-active.png'
+                },
+                {
+                    pagePath: 'pages/discover/index',
+                    text: '发现',
+                    iconPath: './assets/images/tab/discover-inactive.png',
+                    selectedIconPath: './assets/images/tab/discover-active.png'
+                },
+                {
+                    pagePath: 'pages/my/index',
+                    text: '我的',
+                    iconPath: './assets/images/tab/user-inactive.png',
+                    selectedIconPath: './assets/images/tab/user-active.png'
+                }
             ]
         }
     }
