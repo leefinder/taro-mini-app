@@ -17,27 +17,27 @@ class Index extends Component {
         tabbarList: [
             {
                 pagePath: '/pages/index/index',
-                text: '车型',
-                iconPath: '../assets/images/tab/carType-inactive.png',
-                selectedIconPath: '../assets/images/tab/carType-active.png'
-            },
-            {
-                pagePath: '/pages/discover/index',
-                text: '发现',
-                iconPath: '../assets/images/tab/discover-inactive.png',
-                selectedIconPath: '../assets/images/tab/discover-active.png'
+                text: 'tab1',
+                iconPath: '',
+                selectedIconPath: ''
             },
             {
                 pagePath: '/pages/store/index',
-                text: '门店',
-                iconPath: '../assets/images/tab/store-inactive.png',
-                selectedIconPath: '../assets/images/tab/store-active.png'
+                text: 'tab2',
+                iconPath: '',
+                selectedIconPath: ''
+            },
+            {
+                pagePath: '/pages/discover/index',
+                text: 'tab3',
+                iconPath: '',
+                selectedIconPath: ''
             },
             {
                 pagePath: '/pages/my/index',
-                text: '我的',
-                iconPath: '../assets/images/tab/user-inactive.png',
-                selectedIconPath: '../assets/images/tab/user-active.png'
+                text: 'tab4',
+                iconPath: '',
+                selectedIconPath: ''
             }
         ],
         selected: 0
@@ -46,7 +46,7 @@ class Index extends Component {
     switchTab = (e) => {
         const data = e.currentTarget.dataset
         const { path: url, index } = data
-        if (index === 2) {
+        if (index === 1) {
             Taro.navigateTo({
                 url
             })
@@ -59,11 +59,10 @@ class Index extends Component {
         const { tabbarList, selected } = this.state
         return (
             <CoverView className="tab-bar">
-                <CoverView className="tab-bar-border"></CoverView>
                 { tabbarList.map((tab, index) => 
                     <CoverView className="tab-bar-item" key={tab.pagePath} data-path={tab.pagePath} data-index={index}  onClick={this.switchTab}>
-                        <CoverImage src={selected === index ? tab.selectedIconPath : tab.iconPath}></CoverImage>
-                        <CoverView className={selected === index ? 'selectedColor' : 'color'}>{tab.text}</CoverView>
+                        <CoverImage className="image" src={selected === index ? tab.selectedIconPath : tab.iconPath}></CoverImage>
+                        <CoverView className={selected === index ? 'text text-selected' : 'text'}>{tab.text}</CoverView>
                     </CoverView>
                     )
                 }

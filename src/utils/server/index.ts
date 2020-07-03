@@ -3,33 +3,41 @@ import getBaseUrl from './baseUrl'
 import interceptors from './interceptors'
 
 interceptors.forEach(interceptorItem => Taro.addInterceptor(interceptorItem))
+type Header = {
+    'content-type': string,
+    'Authorization': string
+}
+
+type Method = 'GET' | 'PUT' | 'POST' | 'DELETE' | 'OPTIONS'
+
 type Option = {
     url: string,
-    data?: object | string,
-    method: any,
-    header: object
+    data: object | string,
+    method: Method,
+    header: Header,
+    path: string
 }
 class BaseRequest {
 
     baseOptions(params) {
-        let { path, url, data, contentType, method } = params
+        let { path, url, data, header, method } = params
         const baseUrl = getBaseUrl(path, url)
-        contentType = contentType || 'application/x-www-form-urlencoded'
+        let defaultHeader: Header = Object.assign({
+            'content-type': 'application/x-www-form-urlencoded',
+            'Authorization': Taro.getStorageSync('Authorization')
+        }, header)
         method = method || 'GET'
-        const option: Option = {
+        const option: Omit<Option, 'path'> = {
             url: baseUrl,
             data,
             method,
-            header: {
-                'content-type': contentType,
-                'Authorization': Taro.getStorageSync('Authorization')
-            }
+            header: defaultHeader
         }
         return Taro.request(option)
     }
 
     get({ url, data = {}, path = 'apptec' }) {
-        const option = {
+        const option: Partial<Option> = {
             path,
             url,
             data,
@@ -38,11 +46,11 @@ class BaseRequest {
         return this.baseOptions(option)
     }
 
-    post({ url, data, contentType, path = 'apptec' }) {
-        const option = {
+    post({ url, data, header, path = 'apptec' }) {
+        const option: Partial<Option> = {
             url,
             data,
-            contentType,
+            header,
             path,
             method: 'POST'
         }
@@ -50,7 +58,7 @@ class BaseRequest {
     }
 
     put({ url, data = {}, path = 'apptec' }) {
-        const option = {
+        const option: Partial<Option> = {
             url,
             data,
             path,
@@ -60,7 +68,7 @@ class BaseRequest {
     }
 
     delete({ url, data = {}, path = 'apptec' }) {
-        const option = {
+        const option: Partial<Option> = {
             url,
             data,
             path,

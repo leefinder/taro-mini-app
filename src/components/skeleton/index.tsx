@@ -5,7 +5,7 @@ import './index.scss';
 
 type Props = {
     skeletonNodes: SkeletonType,
-    loading: string // 'spin', 'chiaroscuro', 'shine'
+    loading?: string // 'spin', 'chiaroscuro', 'shine'
 }
 const Component: FC<Props> = ({ skeletonNodes: PropsNodes, loading }) => {
     return (
